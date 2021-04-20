@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
+    <div className="min-h-screen text-white bg-blue-300">
       <Switch>
         <Route path="/" component={Home} />
       </Switch>
