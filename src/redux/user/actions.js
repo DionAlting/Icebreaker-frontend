@@ -19,7 +19,6 @@ export const SignUp = (name) => async (dispatch, getState) => {
   try {
     socket.emit("create_user", name);
     socket.on("created_user", (user) => {
-      console.log(user);
       dispatch(SignUpSuccess(user));
     });
   } catch (error) {
@@ -31,7 +30,6 @@ export const LoginHost = (user) => async (dispatch) => {
   try {
     socket.emit("login_host", user);
     socket.on("logged_in_host", (user) => {
-      console.log(user);
       dispatch(LoginSuccess(user));
     });
     socket.on("error", (error) => {
