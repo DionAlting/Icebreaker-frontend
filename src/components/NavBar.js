@@ -14,29 +14,6 @@ function NavBar() {
         >
           Home
         </NavLink>
-        <NavLink
-          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
-          exact
-          to="/login"
-        >
-          Login
-        </NavLink>
-
-        <NavLink
-          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
-          exact
-          to="/admin/questions"
-        >
-          Question page
-        </NavLink>
-
-        <NavLink
-          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
-          exact
-          to="/admin/questionslist"
-        >
-          Question List
-        </NavLink>
       </div>
     </>
   ) : null;
