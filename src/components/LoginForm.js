@@ -22,7 +22,7 @@ const Login = () => {
     dispatch(LoginHost(user));
   };
 
-  if (isHost) return <Redirect to="/admin/questions" />;
+  if (isHost) return <Redirect to="/admin" />;
   return (
     <div className="flex flex-col items-center justify-center h-screen mb-6">
       <form
