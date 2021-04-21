@@ -1,49 +1,45 @@
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { user } from "../redux/user/selectors";
 
 function NavBar() {
-  return (
-    <div
-      style={{
-        margin: 20,
-        fontSize: 25,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
-    >
-      <NavLink
-        activeStyle={{ fontweight: "bold", color: "greenyellow" }}
-        exact
-        to="/"
-      >
-        Home
-      </NavLink>
-      <NavLink
-        activeStyle={{ fontweight: "bold", color: "teal" }}
-        exact
-        to="/login"
-      >
-        Login
-      </NavLink>
+  const { isHost } = useSelector(user);
+  return isHost ? (
+    <>
+      <div className="flex flex-row items-center justify-around py-5 text-xl font-extrabold">
+        <NavLink
+          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
+          exact
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
+          exact
+          to="/login"
+        >
+          Login
+        </NavLink>
 
-      <NavLink
-        activeStyle={{ fontweight: "bold", color: "teal" }}
-        exact
-        to="/admin/questions"
-      >
-        Question page
-      </NavLink>
+        <NavLink
+          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
+          exact
+          to="/admin/questions"
+        >
+          Question page
+        </NavLink>
 
-      <NavLink
-        activeStyle={{ fontweight: "bold", color: "teal" }}
-        exact
-        to="/admin/questionslist"
-      >
-        Question List
-      </NavLink>
-    </div>
-  );
+        <NavLink
+          activeClassName="font-extrabold bg-blue-500 bg-opacity-50 rounded-lg px-2 py-2"
+          exact
+          to="/admin/questionslist"
+        >
+          Question List
+        </NavLink>
+      </div>
+    </>
+  ) : null;
 }
 
 export default NavBar;
