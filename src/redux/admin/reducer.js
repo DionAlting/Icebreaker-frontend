@@ -9,10 +9,6 @@ const adminReducer = (state = initialState, action) => {
         ...state,
         questions: [...action.payload],
       };
-    case "created_question":
-      return {
-        questions: [action.payload, ...state.questions],
-      };
     default:
       return state;
   }
