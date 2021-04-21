@@ -8,13 +8,6 @@ const FetchQuestionsSuccess = (questions) => {
   };
 };
 
-const createdQuestion = (data) => {
-  return {
-    type: "created_question",
-    payload: data,
-  };
-};
-
 export const FetchQuestions = () => async (dispatch, getState) => {
   try {
     socket.emit("all_questions");
@@ -30,7 +23,7 @@ export const SubmitQuestion = (question) => async (dispatch) => {
   try {
     socket.emit("create_question", question);
     socket.on("new_question", (newQuestion) => {
-      dispatch(createdQuestion(newQuestion));
+      dispatch(FetchQuestions());
     });
     socket.on("error", (error) => {
       console.log(error);
