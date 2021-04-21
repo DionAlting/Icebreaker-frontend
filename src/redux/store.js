@@ -1,9 +1,11 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import ReduxThunk from "redux-thunk";
 import userReducer from "./user/reducer";
+import adminReducer from "./admin/reducer";
 
 const rootReducer = combineReducers({
   user: userReducer,
+  admin: adminReducer,
 });
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
