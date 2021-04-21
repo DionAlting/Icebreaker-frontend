@@ -9,6 +9,11 @@ const userReducer = (state = initialState, action) => {
         isPlayer: true,
         ...action.payload,
       };
+    case "user-LoginSuccess":
+      return {
+        isPlayer: true,
+        ...action.payload,
+      };
     default:
       return state;
   }
