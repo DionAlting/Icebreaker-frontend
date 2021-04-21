@@ -1,41 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { SubmitQuestion } from "../redux/admin/actions";
 
-const Questions = () => {
+const QuestionForm = () => {
+  const dispatch = useDispatch();
+
+  const [question, setQuestion] = useState("");
+  const [groupName, setGroupName] = useState("");
+  const [targetNumber, setTargetNumber] = useState("");
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+
+    const newQuestion = {
+      question,
+      groupName,
+      targetNumber,
+    };
+
+    dispatch(SubmitQuestion(newQuestion));
+    setQuestion("");
+    setGroupName("");
+    setTargetNumber("");
+  };
+
   return (
-    <div className="md:flex md:justify-center mb-6">
-      <div className="w-1/3 bg-gray-400 h-12 text-center py-4">
-        Create question
-        <form className="">
-          <div>
-            <input
-              className=" my-20 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              type="text"
-              placeholder="Question"
-            />
-            <input
-              className="  bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              type="text"
-              placeholder="Group Name"
-            />
-            <input
-              className="my-20  bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-              type="text"
-              placeholder="Secret Number"
-            />
-          </div>
-
-          <div class="">
-            <button
-              class="bg-red-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              type="button"
-            >
-              Ask the question
-            </button>
-          </div>
-        </form>
+    <>
+      <div className="text-center">
+        <h1 className="text-gray-800">Create new question</h1>
       </div>
-    </div>
+
+      <form className="" onSubmit={onFormSubmit}>
+        <input
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          type="text"
+          placeholder="Question"
+          value={question}
+          onChange={(event) => setQuestion(event.target.value)}
+        />
+        <input
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          type="text"
+          placeholder="Group Name"
+          value={groupName}
+          onChange={(event) => setGroupName(event.target.value)}
+        />
+        <input
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          type="text"
+          placeholder="Secret Number"
+          value={targetNumber}
+          onChange={(event) => setTargetNumber(event.target.value)}
+        />
+
+        <div class="">
+          <button
+            class="bg-red-500 hover:bg-green-700 mt-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Ask the question
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 
-export default Questions;
+export default QuestionForm;
