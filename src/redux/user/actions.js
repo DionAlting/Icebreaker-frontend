@@ -39,3 +39,11 @@ export const LoginHost = (user) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const submitAnswer = (userAnswer) => async (dispatch) => {
+  try {
+    socket.emit("create_answer", userAnswer);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
