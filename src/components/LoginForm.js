@@ -32,7 +32,7 @@ const Login = () => {
         <div className="mb-4">
           <label
             className="block mb-2 text-sm font-bold text-gray-700"
-            for="username"
+            id="username"
           >
             Username
           </label>
@@ -48,7 +48,7 @@ const Login = () => {
         <div className="mb-6">
           <label
             className="block mb-2 text-sm font-bold text-gray-700"
-            for="password"
+            id="password"
           >
             Password
           </label>
@@ -61,9 +61,9 @@ const Login = () => {
           />
         </div>
 
-        <div class="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <button
-            class="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Login
