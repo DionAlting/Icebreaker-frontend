@@ -32,3 +32,14 @@ export const SubmitQuestion = (question) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const ChangeQuestionState = (questionId) => async (dispatch) => {
+  try {
+    socket.emit("change_question_state", questionId);
+    socket.on("question_status_changed", (question) => {
+      dispatch(FetchQuestions());
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
