@@ -6,6 +6,7 @@ import { submitAnswer } from "../redux/user/actions";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Chart from "../components/Chart";
+import Scoreboard from "../components/Scoreboard";
 
 const socket = io("http://localhost:4001");
 
@@ -64,10 +65,11 @@ const Home = () => {
                   <div>
                     <Chart />
                   </div>
-
-                  <div className="my-5 text-3xl">
-                    Time left {num} seconds
+                  <div>
+                    <Scoreboard />
                   </div>
+
+                  <div className="my-5 text-3xl">Time left {num} seconds</div>
                   <p className="text-4xl">
                     <span className="px-4 py-2 bg-gray-400 rounded-lg shadow-md bg-opacity-40">
                       {question.question}
