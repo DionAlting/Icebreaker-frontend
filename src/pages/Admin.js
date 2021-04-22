@@ -10,11 +10,11 @@ const Admin = () => {
   if (!isHost) return <Redirect to="/login" />;
   return (
     <div className="container mx-auto">
-      <div class="grid grid-rows-3 grid-flow-col grid-cols-3 gap-4">
-        <div class="p-4 bg-white rounded-lg shadow-lg row-span-2">
+      <div className="grid grid-rows-3 grid-flow-col grid-cols-3 gap-4">
+        <div className="p-4 bg-white rounded-lg shadow-lg row-span-2">
           <QuestionForm />
         </div>
-        <div class="p-4 col-span-2 row-span-3 bg-white rounded-lg shadow-lg">
+        <div className="p-4 col-span-2 row-span-3 bg-white rounded-lg shadow-lg">
           <QuestionTable />
         </div>
       </div>
