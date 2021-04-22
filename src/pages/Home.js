@@ -5,17 +5,17 @@ import { user } from "../redux/user/selectors";
 import { submitAnswer } from "../redux/user/actions";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
+import Chart from "../components/Chart";
+
 const socket = io("http://localhost:4001");
 
 const Home = () => {
+  const dispatch = useDispatch();
   const [question, setQuestion] = useState([]);
   const [num, setNum] = useState(20);
   const [isTimeUp, setIsTimeUp] = useState(false);
-  const dispatch = useDispatch();
 
-  let intervalRef = useRef();
-
-  const decreaseNum = () => setNum((prev) => prev - 1);
+  const { isPlayer, username, id } = useSelector(user);
 
   function onMessage() {
     socket.on("new_question_for_user", (question) => {
@@ -28,6 +28,9 @@ const Home = () => {
 
   useEffect(onMessage, []);
 
+  let intervalRef = useRef();
+
+  const decreaseNum = () => setNum((prev) => prev - 1);
   useEffect(() => {
     if (num === 0) {
       clearInterval(intervalRef.current);
@@ -47,8 +50,6 @@ const Home = () => {
     dispatch(submitAnswer(userAnswer));
   };
 
-  const { isPlayer, username, id } = useSelector(user);
-
   return (
     <>
       <div className="container flex flex-col items-center justify-center h-screen m-auto">
@@ -60,7 +61,13 @@ const Home = () => {
             <>
               {question.question ? (
                 <>
-                  <div className="my-5">Time left {num}</div>
+                  <div>
+                    <Chart />
+                  </div>
+
+                  <div className="my-5 text-3xl">
+                    Time left {num} seconds
+                  </div>
                   <p className="text-4xl">
                     <span className="px-4 py-2 bg-gray-400 rounded-lg shadow-md bg-opacity-40">
                       {question.question}
