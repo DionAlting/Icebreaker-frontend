@@ -1,15 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import UserSignUpForm from "../components/UserSignUpForm";
 import { user } from "../redux/user/selectors";
+import { submitAnswer } from "../redux/user/actions";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
 const socket = io("http://localhost:4001");
 
 const Home = () => {
   const [question, setQuestion] = useState([]);
-  const [num, setNum] = useState(5);
+  const [num, setNum] = useState(20);
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const dispatch = useDispatch();
 
   let intervalRef = useRef();
 
@@ -18,7 +20,7 @@ const Home = () => {
   function onMessage() {
     socket.on("new_question_for_user", (question) => {
       setQuestion(question);
-      setNum(5);
+      setNum(20);
       setIsTimeUp(false);
       intervalRef.current = setInterval(decreaseNum, 1000);
     });
@@ -37,6 +39,12 @@ const Home = () => {
   const handleAnswerClick = (questionId, userId, answer) => {
     setIsTimeUp(true);
     console.log(questionId, userId, answer);
+    const userAnswer = {
+      questionId,
+      userId,
+      answer,
+    };
+    dispatch(submitAnswer(userAnswer));
   };
 
   const { isPlayer, username, id } = useSelector(user);
@@ -62,7 +70,7 @@ const Home = () => {
                   <div className="flex flex-row mt-10">
                     <button
                       disabled={isTimeUp}
-                      onClick={() => handleAnswerClick(question.id, id, false)}
+                      onClick={() => handleAnswerClick(question.id, id, true)}
                       className="w-32 px-4 py-2 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
                     >
                       Yes
