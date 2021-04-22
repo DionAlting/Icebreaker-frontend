@@ -53,9 +53,9 @@ const QuestionForm = () => {
           onChange={(event) => setTargetNumber(event.target.value)}
         />
 
-        <div class="">
+        <div className="">
           <button
-            class="bg-red-500 hover:bg-green-700 mt-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-red-500 hover:bg-green-700 mt-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Ask the question
