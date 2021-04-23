@@ -8,9 +8,13 @@ const QuestionForm = () => {
   const [question, setQuestion] = useState("");
   const [groupName, setGroupName] = useState("");
   const [targetNumber, setTargetNumber] = useState("");
+  const [error, setError] = useState("");
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+
+    if (question.length > 20)
+      return setError("Question should be max 20 characters");
 
     const newQuestion = {
       question,
@@ -22,6 +26,7 @@ const QuestionForm = () => {
     setQuestion("");
     setGroupName("");
     setTargetNumber("");
+    setError("");
   };
 
   return (
@@ -31,6 +36,15 @@ const QuestionForm = () => {
           Create Question
         </h1>
       </div>
+      {error && (
+        <div
+          className="p-4 text-red-600 bg-red-200 border-l-4 border-red-600"
+          role="alert"
+        >
+          <p class="font-bold">Oops..</p>
+          <p>{error}</p>
+        </div>
+      )}
 
       <form className="" onSubmit={onFormSubmit}>
         <input
@@ -45,6 +59,7 @@ const QuestionForm = () => {
           type="text"
           placeholder="Group Name"
           value={groupName}
+          required
           onChange={(event) => setGroupName(event.target.value)}
         />
         <input
@@ -52,6 +67,7 @@ const QuestionForm = () => {
           type="text"
           placeholder="Secret Number"
           value={targetNumber}
+          required
           onChange={(event) => setTargetNumber(event.target.value)}
         />
 

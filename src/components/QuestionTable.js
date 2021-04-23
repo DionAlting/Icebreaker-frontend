@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { questions } from "../redux/admin/selectors";
 import { FetchQuestions, ChangeQuestionState } from "../redux/admin/actions";
-import io from "socket.io-client";
 
-const socket = io("http://localhost:4001");
+import socket from "../util/socket";
 
 const QuestionTable = () => {
   const dispatch = useDispatch();
@@ -38,7 +37,7 @@ const QuestionTable = () => {
               Question
             </th>
             <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
-              Target Number
+              Target
             </th>
             <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
               Yes
@@ -47,7 +46,7 @@ const QuestionTable = () => {
               No
             </th>
             <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
-              Group Name
+              Group
             </th>
 
             <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">

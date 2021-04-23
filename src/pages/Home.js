@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Chart from "../components/Chart";
 
-const socket = io("http://localhost:4001");
+const socket = io("http://localhost:4000");
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -51,8 +51,8 @@ const Home = () => {
   };
 
   return (
-    <div class="grid grid-rows-3 grid-cols-3 grid-flow-row-dense gap-2 h-screen text-white">
-      <div class="col-span-full text-center mt-44">
+    <div className="grid h-screen grid-flow-row-dense grid-cols-3 grid-rows-3 gap-2 text-white">
+      <div className="text-center col-span-full mt-44">
         <h1 className="text-6xl font-bold">Codaisseur Ice Breaker Game</h1>
       </div>
       <div className="col-span-full place-self-center">
@@ -78,7 +78,7 @@ const Home = () => {
                       <button
                         disabled={isTimeUp}
                         onClick={() => handleAnswerClick(question.id, id, true)}
-                        className="w-32 px-4 py-2 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        className="w-32 px-4 py-2 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg shadow-md disabled:cursor-not-allowed disabled:opacity-50 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
                       >
                         Yes
                       </button>
@@ -87,14 +87,19 @@ const Home = () => {
                         onClick={() =>
                           handleAnswerClick(question.id, id, false)
                         }
-                        className="w-32 px-4 py-2 ml-5 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-red-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-red-600 focus:ring-red-500 focus:ring-offset-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        className="w-32 px-4 py-2 ml-5 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-red-500 rounded-lg shadow-md disabled:cursor-not-allowed disabled:opacity-50 hover:bg-red-600 focus:ring-red-500 focus:ring-offset-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
                       >
                         No
                       </button>
                     </div>
                   </>
                 ) : (
-                  <p className="text-4xl">No question yet...</p>
+                  <p className="text-4xl">
+                    <span className="px-4 py-2 bg-gray-400 rounded-lg shadow-md bg-opacity-40">
+                      No question yet...
+                    </span>{" "}
+                    {username}
+                  </p>
                 )}
               </>
             ) : (

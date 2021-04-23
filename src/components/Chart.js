@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import io from "socket.io-client";
-
-const socket = io("http://localhost:4001");
+const socket = io("http://localhost:4000");
 
 const Chart = () => {
   const [count, setCount] = useState(null);

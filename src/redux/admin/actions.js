@@ -1,5 +1,5 @@
-import io from "socket.io-client";
-const socket = io("http://localhost:4001");
+// s
+import socket from "../../util/socket";
 
 const FetchQuestionsSuccess = (questions) => {
   return {
