@@ -29,6 +29,7 @@ const Chart = () => {
       label={({ dataEntry }) => dataEntry.value}
       radius={PieChart.defaultProps.radius - shiftSize}
       labelStyle={{ fill: "#ffffff" }}
+      style={{ height: "200px" }}
     />
   );
 };
