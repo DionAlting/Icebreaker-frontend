@@ -23,7 +23,7 @@ const Login = () => {
 
   if (isHost) return <Redirect to="/admin" />;
   return (
-    <div className="flex flex-col items-center justify-center h-screen mb-6">
+    <div className="flex flex-col items-center justify-center h-screen ">
       <form
         className="px-8 pt-6 pb-8 mb-4 bg-white rounded-lg shadow-lg"
         onSubmit={handleLoginSubmit}
@@ -62,7 +62,7 @@ const Login = () => {
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Login
