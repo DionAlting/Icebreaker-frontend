@@ -8,7 +8,6 @@ const UserSignUpForm = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(name);
     dispatch(SignUp(name));
   };
   return (
