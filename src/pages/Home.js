@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Chart from "../components/Chart";
 
-const socket = io("http://localhost:4000");
+const socket = io("https://codaisseur-ice-breaker.herokuapp.com");
 
 const Home = () => {
   const dispatch = useDispatch();

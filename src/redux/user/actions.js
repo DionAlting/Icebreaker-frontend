@@ -1,6 +1,5 @@
-// import io from "socket.io-client";
-// const socket = io("http://localhost:4000");
-import socket from "../../util/socket";
+import io from "socket.io-client";
+const socket = io("https://codaisseur-ice-breaker.herokuapp.com");
 
 const SignUpSuccess = (user) => {
   return {

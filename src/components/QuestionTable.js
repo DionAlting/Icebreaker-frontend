@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { questions } from "../redux/admin/selectors";
 import { FetchQuestions, ChangeQuestionState } from "../redux/admin/actions";
-
-import socket from "../util/socket";
+import io from "socket.io-client";
+const socket = io("https://codaisseur-ice-breaker.herokuapp.com");
 
 const QuestionTable = () => {
   const dispatch = useDispatch();
