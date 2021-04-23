@@ -9,7 +9,6 @@ const Chart = () => {
   const shiftSize = 7;
   function onMessage() {
     socket.on("answer_count", (count) => {
-      console.log(count);
       setCount(count);
     });
     socket.on("new_question_for_user", (question) => {
