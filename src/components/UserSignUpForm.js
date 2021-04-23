@@ -5,13 +5,27 @@ import { SignUp } from "../redux/user/actions";
 const UserSignUpForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    if (!name.length) return setError("Name is required");
+
     dispatch(SignUp(name));
+    setError("");
+    setName("");
   };
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-col">
+      {error && (
+        <div
+          className="p-4 text-red-600 bg-red-200 border-l-4 border-red-600"
+          role="alert"
+        >
+          <p class="font-bold">Oops..</p>
+          <p>{error}</p>
+        </div>
+      )}
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"

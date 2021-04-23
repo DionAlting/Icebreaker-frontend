@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { questions } from "../redux/admin/selectors";
 import { FetchQuestions, ChangeQuestionState } from "../redux/admin/actions";
 import io from "socket.io-client";
-
-const socket = io("http://localhost:4001");
+const socket = io("https://codaisseur-ice-breaker.herokuapp.com");
 
 const QuestionTable = () => {
   const dispatch = useDispatch();
@@ -29,60 +28,60 @@ const QuestionTable = () => {
   return (
     <>
       <div className="text-center">
-        <h1 className="text-gray-800">Questions</h1>
+        <h1 className="mb-4 text-xl font-bold text-gray-800">Questions</h1>
       </div>
-      <table className="table p-4 bg-white shadow rounded-lg w-full">
-        <thead>
+      <table className="table w-full p-4 bg-white rounded-t-lg shadow">
+        <thead className="text-white bg-blue-400">
           <tr>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
               Question
             </th>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-              Target Number
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
+              Target
             </th>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
               Yes
             </th>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
               No
             </th>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-              Group Name
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
+              Group
             </th>
 
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
+            <th className="p-4 font-normal border-b-2 dark:border-dark-5 whitespace-nowrap">
               Answered
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {allQuestions.map((question) => (
             <tr className="text-gray-700" key={question.id}>
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 {question.question}
               </td>
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 {question.targetNumber}
               </td>
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 {
                   question.answers.filter((answer) => answer.answer === true)
                     .length
                 }
               </td>
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 {
                   question.answers.filter((answer) => answer.answer === false)
                     .length
                 }
               </td>
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 {question.groupName}
               </td>
 
-              <td className="border-b-2 p-4 dark:border-dark-5">
+              <td className="p-4 border-b-2 dark:border-dark-5">
                 <button
-                  className="bg-red-400"
+                  className="p-2 text-white bg-red-400 rounded-lg hover:bg-red-500"
                   onClick={() => handleQuestionState(question.id)}
                 >
                   Answered

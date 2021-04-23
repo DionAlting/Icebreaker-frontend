@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import io from "socket.io-client";
-
-const socket = io("http://localhost:4001");
+const socket = io("https://codaisseur-ice-breaker.herokuapp.com");
 
 const Chart = () => {
   const [count, setCount] = useState(null);
@@ -29,6 +28,7 @@ const Chart = () => {
       label={({ dataEntry }) => dataEntry.value}
       radius={PieChart.defaultProps.radius - shiftSize}
       labelStyle={{ fill: "#ffffff" }}
+      style={{ height: "200px" }}
     />
   );
 };
