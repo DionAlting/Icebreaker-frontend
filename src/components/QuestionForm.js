@@ -27,26 +27,28 @@ const QuestionForm = () => {
   return (
     <>
       <div className="text-center">
-        <h1 className="text-gray-800">Create new question</h1>
+        <h1 className="mb-4 text-xl font-bold text-gray-800">
+          Create Question
+        </h1>
       </div>
 
       <form className="" onSubmit={onFormSubmit}>
         <input
-          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 border-2 border-blue-100 rounded appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
           type="text"
           placeholder="Question"
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
         />
         <input
-          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 border-2 border-blue-100 rounded appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
           type="text"
           placeholder="Group Name"
           value={groupName}
           onChange={(event) => setGroupName(event.target.value)}
         />
         <input
-          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 bg-gray-200 border-2 border-gray-200 rounded appearance-none focus:outline-none focus:bg-white focus:border-purple-500"
+          className="w-full px-4 py-2 mt-4 leading-tight text-gray-700 border-2 border-blue-100 rounded appearance-none focus:outline-none focus:bg-white focus:border-blue-500"
           type="text"
           placeholder="Secret Number"
           value={targetNumber}
@@ -55,7 +57,7 @@ const QuestionForm = () => {
 
         <div className="">
           <button
-            className="bg-red-500 hover:bg-green-700 mt-10 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="px-4 py-2 mt-10 font-bold text-white bg-gray-700 rounded-lg hover:bg-gray-500 focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Ask the question
