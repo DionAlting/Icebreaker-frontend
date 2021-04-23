@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+## Welcome To ICE-BRAKER Game 🥶 🔨
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
+	<br>
+	<!-- <a href="https://res.cloudinary.com/jessy/image/upload/v1619180195/ice-breaker-image_riyjk5.jpg"> -->
+		<img src="https://res.cloudinary.com/jessy/image/upload/v1619180195/ice-breaker-image_riyjk5.jpg" width="800" height="300" alt="Click to see the source">
+	</a>
+	<br>
+</div>
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+We are just four students of Codaisseur, as a part of final group project we matched to deliver a project based on socket-io in four days. The idea beihind this real time game app was inspired by an introduction game students play on the first day of Codaisseur bootcamp in order to **break the Ice**.
 
-### `npm start`
+You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How we work as a team:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- We started with wireframe, main structure of the app based on styling.
+- We coded all together using Live Share vs-code extension.
+- The communication was through discord and we worked remotely.
+- We used GitHub (workflow) version control with CI/CD.
 
-### `npm test`
+### Technology and Tools:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ReactJs
+- Redux
+- Nodejs
+- Sequelize as ORM
+- Express
+- Socket-io
+- Tailwind-css
+- Git
 
-### `npm run build`
+### Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- #### As a admin/create-question
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<div align="center">
+	<br>
+		<img src="https://res.cloudinary.com/jessy/image/upload/v1619205204/Peek_2021-04-23_20-54_uxfcxb.gif"  alt="Click to see the source">
+	</a>
+	<br>
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+- #### As a user/player
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<div align="center">
+	<br>
+		<img src="https://res.cloudinary.com/jessy/image/upload/v1619204800/Peek_2021-04-23_21-03_dt7twd.gif"  alt="Click to see the source">
+	</a>
+	<br>
+</div>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Links
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Database Model](https://res.cloudinary.com/jessy/image/upload/v1619177621/ice-breaker-modeldb_uefg3y.png)
+- [Wireframe](https://res.cloudinary.com/jessy/image/upload/v1619177621/icee-breaker-wireframe_erf3st.png)
+- [kanban Project Board](https://github.com/DionAlting/Icebreaker-frontend/projects/1)
 
-## Learn More
+### About used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- If you have any question and query about the project,you can find us here and we would love to hear from you.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - Dion Alting [LinkedIn](https://www.linkedin.com/in/dion-alting/)
+  - Alamani Evangelia [LinkedIn](https://www.linkedin.com/in/evangelia-alamani-487647137/)
+  - Giampiero de Vita [LinkedIn](https://www.linkedin.com/in/giampierodevita/)
+  - Tazkia Jessy [LinkedIn](https://www.linkedin.com/in/tazkia-jessy-123256108/)
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+ clone the app
+ git clone https://github.com/DionAlting/Icebreaker-frontend.git
+ cd Icebreaker-backend
+ npm install
+ install dependencies
+ Start development server with npm run server-dev
+```
 
-### Analyzing the Bundle Size
+### Server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Server Repository](https://github.com/DionAlting/Icebreaker-backend)
