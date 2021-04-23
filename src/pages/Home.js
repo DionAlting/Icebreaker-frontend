@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import UserSignUpForm from "../components/UserSignUpForm";
 import { user } from "../redux/user/selectors";
-import { submitAnswer } from "../redux/user/actions";
+import { submitAnswer, setNewQuestion } from "../redux/user/actions";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Chart from "../components/Chart";
@@ -24,10 +24,11 @@ const Home = () => {
       setNum(20);
       setIsTimeUp(false);
       intervalRef.current = setInterval(decreaseNum, 1000);
+      dispatch(setNewQuestion(question));
     });
   }
 
-  useEffect(onMessage, []);
+  useEffect(onMessage, [dispatch]);
 
   let intervalRef = useRef();
 
@@ -42,7 +43,6 @@ const Home = () => {
 
   const handleAnswerClick = (questionId, userId, answer) => {
     setIsTimeUp(true);
-    console.log(questionId, userId, answer);
     const userAnswer = {
       questionId,
       userId,

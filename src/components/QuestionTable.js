@@ -35,9 +35,6 @@ const QuestionTable = () => {
         <thead>
           <tr>
             <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
-              #
-            </th>
-            <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
               Question
             </th>
             <th className="border-b-2 p-4 dark:border-dark-5 whitespace-nowrap font-normal text-gray-900">
@@ -61,9 +58,6 @@ const QuestionTable = () => {
         <tbody>
           {allQuestions.map((question) => (
             <tr className="text-gray-700" key={question.id}>
-              <td className="border-b-2 p-4 dark:border-dark-5">
-                {question.id}
-              </td>
               <td className="border-b-2 p-4 dark:border-dark-5">
                 {question.question}
               </td>
