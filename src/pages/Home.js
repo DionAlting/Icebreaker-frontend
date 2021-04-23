@@ -6,7 +6,6 @@ import { submitAnswer, setNewQuestion } from "../redux/user/actions";
 import io from "socket.io-client";
 import { Link } from "react-router-dom";
 import Chart from "../components/Chart";
-import Scoreboard from "../components/Scoreboard";
 
 const socket = io("http://localhost:4001");
 
@@ -52,67 +51,70 @@ const Home = () => {
   };
 
   return (
-    <>
-      <div className="container flex flex-col items-center justify-center h-screen m-auto">
-        <div className="flex mt-20">
-          <h1 className="text-6xl font-bold">Codaisseur Ice Breaking Game</h1>
-        </div>
-        <div className="flex flex-col items-center mt-10">
-          {isPlayer ? (
-            <>
-              {question.question ? (
-                <>
-                  <div>
-                    <Chart />
-                  </div>
-                  <div>
-                    <Scoreboard />
-                  </div>
+    <div class="grid grid-rows-3 grid-cols-3 grid-flow-row-dense gap-2 h-screen text-white">
+      <div class="col-span-full text-center mt-44">
+        <h1 className="text-6xl font-bold">Codaisseur Ice Breaker Game</h1>
+      </div>
+      <div className="col-span-full place-self-center">
+        <div className="flex flex-row items-center justify-center">
+          <div className="flex flex-col items-center">
+            {isPlayer ? (
+              <>
+                {question.question ? (
+                  <>
+                    <div className="my-5 text-3xl font-semibold">
+                      {num <= 0 ? "Times up!" : `Time left ${num} seconds `}
+                    </div>
+                    <div className="py-5">
+                      <p className="text-4xl">
+                        <span className="px-4 py-2 bg-gray-400 rounded-lg shadow-md bg-opacity-40">
+                          {question.question}
+                        </span>
+                        <span className="ml-4 font-extrabold">{username}?</span>
+                      </p>
+                    </div>
 
-                  <div className="my-5 text-3xl">Time left {num} seconds</div>
-                  <p className="text-4xl">
-                    <span className="px-4 py-2 bg-gray-400 rounded-lg shadow-md bg-opacity-40">
-                      {question.question}
-                    </span>
-                    <span className="ml-4 font-extrabold">{username}?</span>
-                  </p>
-                  <div className="flex flex-row mt-10">
-                    <button
-                      disabled={isTimeUp}
-                      onClick={() => handleAnswerClick(question.id, id, true)}
-                      className="w-32 px-4 py-2 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                    >
-                      Yes
-                    </button>
-                    <button
-                      disabled={isTimeUp}
-                      onClick={() => handleAnswerClick(question.id, id, false)}
-                      className="w-32 px-4 py-2 ml-5 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-red-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-red-600 focus:ring-red-500 focus:ring-offset-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
-                    >
-                      No
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <p className="text-4xl">No question yet...</p>
-              )}
-            </>
-          ) : (
-            <UserSignUpForm />
-          )}
+                    <div className="flex flex-row mt-5">
+                      <button
+                        disabled={isTimeUp}
+                        onClick={() => handleAnswerClick(question.id, id, true)}
+                        className="w-32 px-4 py-2 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                      >
+                        Yes
+                      </button>
+                      <button
+                        disabled={isTimeUp}
+                        onClick={() =>
+                          handleAnswerClick(question.id, id, false)
+                        }
+                        className="w-32 px-4 py-2 ml-5 text-lg font-semibold text-center text-white transition duration-200 ease-in bg-red-500 rounded-lg shadow-md disabled:opacity-50 hover:bg-red-600 focus:ring-red-500 focus:ring-offset-red-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                      >
+                        No
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <p className="text-4xl">No question yet...</p>
+                )}
+              </>
+            ) : (
+              <UserSignUpForm />
+            )}
+          </div>
+          <div className="ml-4 ">
+            {isPlayer && question.question ? <Chart /> : null}
+          </div>
         </div>
       </div>
-      <div className="flex flex-row justify-end">
-        <div className="mb-5 mr-10">
-          <Link
-            className="px-3 py-3 text-lg font-bold bg-gray-800 bg-opacity-50 rounded-lg hover:bg-gray-900"
-            to="/login"
-          >
-            Host Login
-          </Link>
-        </div>
+      <div className="mb-10 mr-5 col-span-full place-self-end">
+        <Link
+          className="p-4 text-lg font-bold bg-gray-800 bg-opacity-50 rounded-lg hover:bg-gray-900"
+          to="/login"
+        >
+          Host Login
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 
