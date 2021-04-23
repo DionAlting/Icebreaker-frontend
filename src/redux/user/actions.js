@@ -48,3 +48,10 @@ export const submitAnswer = (userAnswer) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const setNewQuestion = (question) => {
+  return {
+    type: "user-NewQuestion",
+    payload: question,
+  };
+};
