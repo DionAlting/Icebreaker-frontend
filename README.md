@@ -1,4 +1,4 @@
-## Welcome To ICE-BRAKER Game 🥶 🔨
+## Welcome To ICE-BREAKER Game 🥶 🔨
 
 <div align="center">
 	<br>
@@ -10,15 +10,15 @@
 
 <br/>
 
-We are just four students of Codaisseur, as a part of final group project we matched to deliver a project based on socket-io in four days. The idea behind this real time game app was inspired by an introduction game students play on the first day of the Codaisseur bootcamp in order to **Break the ice**.
+We are just four students of Codaisseur, as a part of final group project we matched to deliver a project based on Socket.io in four days. The idea behind this real time game app was inspired by an introduction game students play on the first day of the Codaisseur bootcamp in order to **Break the ice**.
 
 You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app/).
 
 ### How we work as a team:
 
 - We started with wireframe, main structure of the app based on styling.
-- We coded all together using Live Share vs-code extension.
-- The communication was through discord and we worked remotely.
+- We coded all together using LiveShare vs-code extension.
+- The communication was through Discord and we worked remotely.
 - We used GitHub (workflow) version control with CI/CD.
 
 ### Technology and Tools:
@@ -27,6 +27,7 @@ You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app
 - Redux
 - Nodejs
 - Sequelize as ORM
+- PostgreSQL
 - Express
 - Socket.io
 - Tailwindcss
