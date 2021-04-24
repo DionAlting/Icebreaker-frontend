@@ -10,7 +10,7 @@
 
 <br/>
 
-We are just four students of Codaisseur, as a part of final group project we matched to deliver a project based on socket-io in four days. The idea beihind this real time game app was inspired by an introduction game students play on the first day of Codaisseur bootcamp in order to **break the Ice**.
+We are just four students of Codaisseur, as a part of final group project we matched to deliver a project based on socket-io in four days. The idea behind this real time game app was inspired by an introduction game students play on the first day of the Codaisseur bootcamp in order to **Break the ice**.
 
 You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app/).
 
@@ -28,8 +28,8 @@ You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app
 - Nodejs
 - Sequelize as ORM
 - Express
-- Socket-io
-- Tailwind-css
+- Socket.io
+- Tailwindcss
 - Git
 
 ### Demo
@@ -76,10 +76,10 @@ You can go straight to our website [Ice-Breaker](https://ice-breaker.netlify.app
 ```bash
  clone the app
  git clone https://github.com/DionAlting/Icebreaker-frontend.git
- cd Icebreaker-backend
+ cd Icebreaker-frontend
  npm install
  install dependencies
- Start development server with npm run server-dev
+ Start development server with npm run start
 ```
 
 ### Server
